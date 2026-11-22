@@ -1,0 +1,1578 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>حكايتنا الأبدية | عالمنا الخاص ✨</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Aref Ruqaa, Amiri, Cairo -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Aref+Ruqaa:wght@400;700&family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        ruqaa: ['"Aref Ruqaa"', 'serif'],
+                        amiri: ['Amiri', 'serif'],
+                        cairo: ['Cairo', 'sans-serif'],
+                    },
+                    colors: {
+                        voidBlack: '#050208',
+                        rubyRoyal: '#d90429',
+                        rubyGlow: '#ff1e56',
+                        champagne: '#f5d08a',
+                        goldRoyal: '#d4af37',
+                        roseSilk: '#f7cad0',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --bg-void: #050208;
+            --ruby: #ff1e56;
+            --gold: #f5d08a;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--bg-void);
+            color: #fff8fa;
+            overflow-x: hidden;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        /* =========================================================
+           1. الخلفية المخملية والضباب المضيء المتحرك (Luxury Nebula)
+           ========================================================= */
+        .nebula-backdrop {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+            background: radial-gradient(circle at 50% 20%, #1b0514 0%, #09030e 55%, #050208 100%);
+        }
+
+        .nebula-cloud {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(95px);
+            opacity: 0.38;
+            will-change: transform;
+            animation: driftNebula 22s infinite alternate ease-in-out;
+        }
+
+        .cloud-ruby {
+            width: 55vw; height: 55vw;
+            max-width: 650px; max-height: 650px;
+            background: radial-gradient(circle, #d90429 0%, transparent 70%);
+            top: -15%; right: -10%;
+        }
+
+        .cloud-gold {
+            width: 50vw; height: 50vw;
+            max-width: 600px; max-height: 600px;
+            background: radial-gradient(circle, #b8860b 0%, transparent 72%);
+            bottom: -15%; left: -12%;
+            opacity: 0.28;
+            animation-duration: 28s;
+            animation-delay: -6s;
+        }
+
+        .cloud-center {
+            width: 40vw; height: 40vw;
+            max-width: 480px; max-height: 480px;
+            background: radial-gradient(circle, #6a0432 0%, transparent 70%);
+            top: 40%; left: 30%;
+            animation-duration: 25s;
+            animation-delay: -11s;
+        }
+
+        @keyframes driftNebula {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(-45px, 40px) scale(1.12); }
+            100% { transform: translate(40px, -35px) scale(0.95); }
+        }
+
+        /* =========================================================
+           2. النصوص الذهبية والزجاج الملكي (Editorial Glassmorphism)
+           ========================================================= */
+        .gold-foil-text {
+            background: linear-gradient(135deg, #fff8e7 0%, #f5d08a 45%, #d4af37 75%, #fff2cc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 4px 20px rgba(245, 208, 138, 0.35));
+        }
+
+        .ruby-text-glow {
+            text-shadow: 0 0 20px rgba(255, 30, 86, 0.8), 0 0 45px rgba(217, 4, 41, 0.5);
+        }
+
+        .editorial-glass {
+            background: linear-gradient(155deg, rgba(255, 255, 255, 0.06) 0%, rgba(217, 4, 41, 0.04) 45%, rgba(5, 2, 8, 0.78) 100%);
+            backdrop-filter: blur(22px);
+            -webkit-backdrop-filter: blur(22px);
+            border: 1px solid rgba(245, 208, 138, 0.24);
+            box-shadow:
+                0 30px 70px -15px rgba(0, 0, 0, 0.85),
+                inset 0 1px 1px rgba(255, 255, 255, 0.14);
+        }
+
+        /* =========================================================
+           3. ستارة الانتقال الضوئية بين المشاهد (Light Curtain)
+           ========================================================= */
+        .light-curtain {
+            position: fixed;
+            inset: 0;
+            z-index: 60;
+            pointer-events: none;
+            opacity: 0;
+            background: radial-gradient(circle at center, rgba(255, 244, 214, 0.96) 0%, rgba(245, 208, 138, 0.85) 35%, rgba(217, 4, 41, 0.65) 75%, #050208 100%);
+            transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .light-curtain.active {
+            opacity: 1;
+        }
+
+        /* إدارة المشاهد الأربعة */
+        .cinematic-scene {
+            display: none;
+            opacity: 0;
+            transform: translateY(24px) scale(0.98);
+            transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .cinematic-scene.active-scene {
+            display: flex;
+        }
+
+        .cinematic-scene.visible-scene {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        /* =========================================================
+           4. القلب الزجاجي 3D وحلقات الطاقة في المشهد الأول
+           ========================================================= */
+        .glass-heart-3d {
+            position: relative;
+            filter: drop-shadow(0 0 22px rgba(255, 30, 86, 0.85));
+            animation: heartbeat3D 1.5s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+            transition: all 0.4s ease;
+        }
+
+        @keyframes heartbeat3D {
+            0%, 100% { transform: scale(1); }
+            15% { transform: scale(1.22); }
+            30% { transform: scale(1.04); }
+            45% { transform: scale(1.16); }
+            70% { transform: scale(1); }
+        }
+
+        @keyframes spinClockwise {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes spinCounterClockwise {
+            from { transform: rotate(360deg); }
+            to { transform: rotate(0deg); }
+        }
+
+        .energy-ring-cw {
+            transform-origin: 140px 140px;
+            animation: spinClockwise 10s linear infinite;
+        }
+
+        .energy-ring-ccw {
+            transform-origin: 140px 140px;
+            animation: spinCounterClockwise 14s linear infinite;
+        }
+
+        /* الزر الذهبي المغناطيسي المتوهج */
+        .magnetic-gold-btn {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #f5d08a 0%, #d4af37 50%, #f5d08a 100%);
+            color: #09030e;
+            box-shadow: 0 0 30px rgba(245, 208, 138, 0.55), 0 10px 25px rgba(0, 0, 0, 0.6);
+            transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease;
+        }
+
+        .magnetic-gold-btn:hover {
+            box-shadow: 0 0 45px rgba(245, 208, 138, 0.85), 0 15px 35px rgba(217, 4, 41, 0.4);
+        }
+
+        .magnetic-gold-btn::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 60%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.75), transparent);
+            transform: skewX(-25deg);
+            animation: goldShine 2.8s infinite;
+        }
+
+        @keyframes goldShine {
+            0% { left: -100%; }
+            45%, 100% { left: 160%; }
+        }
+
+        /* =========================================================
+           5. بطاقات Polaroid ثلاثية الأبعاد (3D Tilt Gallery)
+           ========================================================= */
+        .polaroid-perspective {
+            perspective: 1200px;
+        }
+
+        .polaroid-card {
+            transform-style: preserve-3d;
+            transition: transform 0.22s ease-out, box-shadow 0.35s ease, border-color 0.35s ease;
+            background: linear-gradient(165deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.03) 100%);
+            border: 1px solid rgba(245, 208, 138, 0.32);
+            border-radius: 22px;
+            padding: 14px 14px 26px 14px;
+            box-shadow: 0 22px 45px rgba(0, 0, 0, 0.7);
+            position: relative;
+        }
+
+        .polaroid-card:hover {
+            border-color: rgba(245, 208, 138, 0.75);
+            box-shadow: 0 30px 65px rgba(217, 4, 41, 0.3), 0 0 30px rgba(245, 208, 138, 0.25);
+        }
+
+        .polaroid-sheen {
+            position: absolute;
+            inset: 0;
+            border-radius: 22px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .polaroid-card:hover .polaroid-sheen {
+            opacity: 1;
+        }
+
+        /* =========================================================
+           6. قاعة السينما والتتر المتحرك (Movie Credits Crawl)
+           ========================================================= */
+        .cinema-viewport {
+            position: relative;
+            height: 54vh;
+            min-height: 380px;
+            max-height: 540px;
+            overflow: hidden;
+            background: radial-gradient(ellipse at center, #140410 0%, #040106 100%);
+            mask-image: linear-gradient(to bottom, transparent 0%, black 18%, black 82%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 18%, black 82%, transparent 100%);
+        }
+
+        .credits-roller {
+            position: absolute;
+            width: 100%;
+            left: 0;
+            top: 0;
+            will-change: transform;
+        }
+
+        /* شريط التمرير المخصص */
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: #050208; }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(#d90429, #f5d08a); border-radius: 10px; }
+    </style>
+</head>
+<body class="selection:bg-rubyRoyal selection:text-white">
+
+    <!-- خلفية الضباب المضيء المتحركة -->
+    <div class="nebula-backdrop">
+        <div class="nebula-cloud cloud-ruby"></div>
+        <div class="nebula-cloud cloud-gold"></div>
+        <div class="nebula-cloud cloud-center"></div>
+    </div>
+
+    <!-- كانفاس النجوم المتلألئة، أثر الماوس/اللمس، بتلات الورد، والألعاب النارية -->
+    <canvas id="universeCanvas" class="fixed inset-0 pointer-events-none z-20"></canvas>
+
+    <!-- ستارة الانتقال الضوئية بين المشاهد -->
+    <div id="lightCurtain" class="light-curtain"></div>
+
+    <!-- شريط التحكم العلوي العائم -->
+    <nav class="fixed top-4 left-4 right-4 z-40 flex items-center justify-between pointer-events-none">
+        <!-- زر كتم/تشغيل موسيقى البيانو الرومانسية -->
+        <button id="audioToggleBtn" onclick="togglePianoMusic()" class="pointer-events-auto editorial-glass px-4 py-2.5 rounded-full text-xs sm:text-sm text-champagne hover:scale-105 active:scale-95 transition flex items-center gap-2.5 shadow-lg">
+            <span class="relative flex h-2.5 w-2.5">
+                <span id="audioPing" class="hidden animate-ping absolute inline-flex h-full w-full rounded-full bg-rubyGlow opacity-80"></span>
+                <span id="audioDot" class="relative inline-flex rounded-full h-2.5 w-2.5 bg-champagne"></span>
+            </span>
+            <i id="audioIcon" class="fas fa-volume-xmark"></i>
+            <span id="audioLabel">تشغيل الموسيقى</span>
+        </button>
+
+        <!-- زر تخصيص الموقع للعميل (يُحذف تلقائياً في النسخة المصدرة) -->
+        <div id="customizerCornerWrapper" class="pointer-events-auto">
+            <button onclick="openCustomizerDrawer()" class="editorial-glass px-4 py-2.5 rounded-full text-xs sm:text-sm text-white hover:text-champagne hover:scale-105 active:scale-95 transition flex items-center gap-2 border border-champagne/40 shadow-lg">
+                <span>تخصيص الموقع</span>
+                <i class="fas fa-gear text-champagne animate-spin" style="animation-duration: 9s;"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- =========================================================
+         المشهد الأول: شاشة التحميل السحرية "نسبة حبي ليكي" (0% -> 100%)
+         ========================================================= -->
+    <section id="scene1" class="cinematic-scene active-scene visible-scene relative z-30 min-h-screen flex-col items-center justify-center px-5 py-16 text-center">
+        <div class="max-w-lg w-full editorial-glass rounded-[2.5rem] p-8 sm:p-12 relative">
+            
+            <!-- تحية باسم الحبيبة -->
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-champagne/30 mb-5">
+                <i class="fas fa-sparkles text-champagne text-xs"></i>
+                <span id="displayHerGreeting" class="text-xs sm:text-sm font-bold text-roseSilk">إلى أميرتي وحبيبة عمري</span>
+            </div>
+
+            <!-- العنوان المطلوب بخط عربي فاخر ومتوهج -->
+            <h1 class="font-ruqaa text-4xl sm:text-6xl gold-foil-text mb-7 leading-snug">
+                نسبة حبي ليكي
+            </h1>
+
+            <!-- حلقة الطاقة الذهبية والياقوتية + القلب الزجاجي 3D -->
+            <div id="energyCoreBox" class="relative w-64 h-64 sm:w-72 sm:h-72 mx-auto mb-6 flex items-center justify-center">
+                <svg class="w-full h-full overflow-visible" viewBox="0 0 280 280">
+                    <defs>
+                        <linearGradient id="royalEnergyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#ff1e56" />
+                            <stop offset="50%" stop-color="#f5d08a" />
+                            <stop offset="100%" stop-color="#d90429" />
+                        </linearGradient>
+                        <filter id="royalGlow" x="-30%" y="-30%" width="160%" height="160%">
+                            <feGaussianBlur stdDeviation="5.5" result="blur" />
+                            <feMerge>
+                                <feMergeNode in="blur" />
+                                <feMergeNode in="SourceGraphic" />
+                            </feMerge>
+                        </filter>
+                    </defs>
+
+                    <!-- حلقة طاقة خارجية ذهبية -->
+                    <circle cx="140" cy="140" r="128" fill="none" stroke="rgba(245, 208, 138, 0.22)" stroke-width="1.5" stroke-dasharray="6 10" class="energy-ring-cw" />
+                    <g class="energy-ring-cw">
+                        <circle cx="140" cy="12" r="5" fill="#f5d08a" filter="url(#royalGlow)" />
+                    </g>
+
+                    <!-- حلقة طاقة داخلية ياقوتية -->
+                    <circle cx="140" cy="140" r="95" fill="none" stroke="rgba(255, 30, 86, 0.28)" stroke-width="1.2" stroke-dasharray="14 8" class="energy-ring-ccw" />
+                    <g class="energy-ring-ccw">
+                        <circle cx="140" cy="45" r="4" fill="#ff1e56" filter="url(#royalGlow)" />
+                    </g>
+
+                    <!-- مسار الخلفية -->
+                    <circle cx="140" cy="140" r="112" fill="none" stroke="rgba(255, 255, 255, 0.06)" stroke-width="12" />
+
+                    <!-- شريط التقدم المضيء -->
+                    <circle id="progressRing" cx="140" cy="140" r="112" fill="none"
+                            stroke="url(#royalEnergyGrad)" stroke-width="12" stroke-linecap="round"
+                            stroke-dasharray="703.71" stroke-dashoffset="703.71"
+                            transform="rotate(-90 140 140)"
+                            filter="url(#royalGlow)" />
+                </svg>
+
+                <!-- محتوى المنتصف: القلب الزجاجي والرقم ثم اللانهاية -->
+                <div class="absolute inset-0 flex flex-col items-center justify-center">
+                    <!-- أيقونة قلب زجاجي ثلاثي الأبعاد -->
+                    <div id="glassHeartWrapper" class="glass-heart-3d mb-2">
+                        <svg width="54" height="54" viewBox="0 0 64 64" fill="none">
+                            <defs>
+                                <linearGradient id="glassHeartGrad" x1="10" y1="8" x2="54" y2="58" gradientUnits="userSpaceOnUse">
+                                    <stop offset="0%" stop-color="#ff6b8b" />
+                                    <stop offset="45%" stop-color="#ff1e56" />
+                                    <stop offset="100%" stop-color="#800020" />
+                                </linearGradient>
+                                <linearGradient id="glassHighlight" x1="16" y1="12" x2="36" y2="32" gradientUnits="userSpaceOnUse">
+                                    <stop offset="0%" stop-color="#ffffff" stop-opacity="0.85" />
+                                    <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+                                </linearGradient>
+                            </defs>
+                            <path d="M32 56C32 56 8 40.5 8 22.5C8 14.5 14.3 8.5 21.8 8.5C26.4 8.5 30.3 10.9 32 14.4C33.7 10.9 37.6 8.5 42.2 8.5C49.7 8.5 56 14.5 56 22.5C56 40.5 32 56 32 56Z" fill="url(#glassHeartGrad)" stroke="#f5d08a" stroke-width="1.5"/>
+                            <path d="M14 21C14 15.5 18 12.5 22.5 12.5C25.5 12.5 28 14 29 16.5C24 16.5 19.5 19.5 18.5 25C16.5 24.5 14 23 14 21Z" fill="url(#glassHighlight)"/>
+                        </svg>
+                    </div>
+
+                    <!-- العداد الرقمي -->
+                    <div id="numericCounterBox" class="flex items-baseline justify-center" dir="ltr">
+                        <span id="lovePercentNum" class="text-5xl sm:text-6xl font-black text-white ruby-text-glow tracking-tight">0</span>
+                        <span class="text-2xl font-extrabold text-champagne ml-0.5">%</span>
+                    </div>
+
+                    <!-- رمز اللانهاية عند 100% -->
+                    <div id="infinityRevealBox" class="hidden flex-col items-center">
+                        <span class="text-6xl sm:text-7xl font-black gold-foil-text leading-none animate-pulse">∞</span>
+                        <span class="text-xs sm:text-sm font-bold text-champagne mt-1 tracking-wide">حبي ليكي مالوش حدود</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- العبارات الرومانسية المتغيرة أثناء العد -->
+            <p id="dynamicLoveQuote" class="font-amiri text-2xl sm:text-3xl text-roseSilk min-h-[3.6rem] flex items-center justify-center px-2 transition-all duration-300">
+                ببدأ أعد نبضات قلبي أول ما اسمك ييجي في بالي...
+            </p>
+
+            <!-- زر الدخول المغناطيسي بعد الوصول لـ 100% -->
+            <div class="mt-6 min-h-[4rem] flex items-center justify-center">
+                <button id="enterWorldBtn" onclick="enterOurWorld()" class="hidden magnetic-gold-btn w-full py-4 px-8 rounded-2xl font-black text-lg sm:text-xl flex items-center justify-center gap-3 cursor-pointer">
+                    <span>ادخلي عالمنا ✨</span>
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================
+         المشهد الثاني: كشف اليوم المميز (The Milestone Reveal)
+         ========================================================= -->
+    <section id="scene2" class="cinematic-scene relative z-30 min-h-screen flex-col items-center justify-center px-5 py-20 text-center">
+        <div class="max-w-3xl w-full editorial-glass rounded-[2.6rem] p-8 sm:p-14 border border-champagne/40 relative">
+            
+            <!-- أيقونة تاج/نجمة ملكية -->
+            <div class="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-rubyRoyal/30 to-champagne/20 border border-champagne/50 flex items-center justify-center shadow-xl">
+                <i class="fas fa-crown text-2xl text-champagne"></i>
+            </div>
+
+            <!-- عنوان متوهج -->
+            <h2 id="displayMilestoneHeading" class="font-ruqaa text-3xl sm:text-5xl gold-foil-text mb-6 leading-snug">
+                اليوم اللي بدأت فيه حكايتنا
+            </h2>
+
+            <!-- إطار التاريخ المميز المهيب -->
+            <div class="my-6 py-8 px-6 rounded-3xl bg-black/45 border border-champagne/35 shadow-inner">
+                <div id="displaySpecialDate" class="text-4xl sm:text-6xl lg:text-7xl font-black gold-foil-text tracking-wide leading-tight">
+                    14 فبراير 2023
+                </div>
+                <p id="displayMilestoneQuote" class="font-amiri text-2xl sm:text-3xl text-roseSilk mt-5 max-w-xl mx-auto leading-relaxed">
+                    "في اليوم ده تحديداً، اتولد قلبي من جديد وبقى لعمري أجمل معنى بوجودك"
+                </p>
+            </div>
+
+            <!-- عداد الوقت الحي الفاخر -->
+            <div class="mt-8">
+                <p class="text-xs sm:text-sm text-champagne/90 font-bold mb-4 tracking-wide">
+                    كل لحظة بتعدي وإنتي معايا هي نعمة بشكر ربنا عليها:
+                </p>
+                <div class="grid grid-cols-4 gap-2.5 sm:gap-4 max-w-xl mx-auto">
+                    <div class="editorial-glass rounded-2xl p-3 sm:p-5 border border-rubyGlow/35">
+                        <span id="liveDays" class="block text-2xl sm:text-4xl font-black text-white ruby-text-glow">0</span>
+                        <span class="text-xs text-roseSilk font-bold mt-1 block">يوم</span>
+                    </div>
+                    <div class="editorial-glass rounded-2xl p-3 sm:p-5 border border-rubyGlow/35">
+                        <span id="liveHours" class="block text-2xl sm:text-4xl font-black text-white ruby-text-glow">0</span>
+                        <span class="text-xs text-roseSilk font-bold mt-1 block">ساعة</span>
+                    </div>
+                    <div class="editorial-glass rounded-2xl p-3 sm:p-5 border border-rubyGlow/35">
+                        <span id="liveMinutes" class="block text-2xl sm:text-4xl font-black text-white ruby-text-glow">0</span>
+                        <span class="text-xs text-roseSilk font-bold mt-1 block">دقيقة</span>
+                    </div>
+                    <div class="editorial-glass rounded-2xl p-3 sm:p-5 border border-champagne/50">
+                        <span id="liveSeconds" class="block text-2xl sm:text-4xl font-black text-champagne">0</span>
+                        <span class="text-xs text-champagne font-bold mt-1 block">ثانية</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- زر الانتقال للمشهد الثالث -->
+            <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
+                <button onclick="switchScene(3)" class="magnetic-gold-btn px-8 py-4 rounded-2xl font-black text-base sm:text-lg flex items-center gap-3 cursor-pointer">
+                    <span>ذكرياتنا الحلوة 📸</span>
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================
+         المشهد الثالث: معرض اللحظات السعيدة (3D Memory Gallery)
+         ========================================================= -->
+    <section id="scene3" class="cinematic-scene relative z-30 min-h-screen flex-col items-center justify-center px-5 py-24">
+        <div class="max-w-6xl w-full mx-auto">
+            <div class="text-center mb-12">
+                <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-rubyRoyal/20 border border-rubyGlow/40 text-roseSilk text-xs font-bold mb-3">
+                    <i class="fas fa-camera-retro text-champagne"></i>
+                    <span>شريط ذكرياتنا</span>
+                </span>
+                <h2 class="font-ruqaa text-4xl sm:text-6xl gold-foil-text mb-3 leading-snug">
+                    لحظاتنا السعيدة
+                </h2>
+                <p class="font-amiri text-xl sm:text-2xl text-roseSilk/90 max-w-xl mx-auto">
+                    اضغطي على أي صورة لتكبيرها وإرسال قلوب عليها.. كل صورة هنا حكاية حب
+                </p>
+            </div>
+
+            <!-- شبكة بطاقات Polaroid ثلاثية الأبعاد -->
+            <div id="polaroidGalleryGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 px-2">
+                <!-- تُبنى تلقائياً عبر JS -->
+            </div>
+
+            <!-- أزرار التنقل للمشهد الرابع -->
+            <div class="mt-14 flex flex-wrap items-center justify-center gap-4">
+                <button onclick="switchScene(2)" class="editorial-glass px-6 py-3.5 rounded-2xl text-sm font-bold text-roseSilk hover:text-white transition flex items-center gap-2">
+                    <i class="fas fa-arrow-right"></i>
+                    <span>يومنا المميز</span>
+                </button>
+                <button onclick="switchScene(4)" class="magnetic-gold-btn px-8 py-4 rounded-2xl font-black text-base sm:text-lg flex items-center gap-3 cursor-pointer">
+                    <span>رسالة من قلبي ليكي 💌</span>
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================
+         المشهد الرابع: التتر السينمائي (The Movie Credits)
+         ========================================================= -->
+    <section id="scene4" class="cinematic-scene relative z-30 min-h-screen flex-col items-center justify-center px-4 sm:px-6 py-20">
+        <div class="max-w-4xl w-full editorial-glass rounded-[2.6rem] p-6 sm:p-10 border border-champagne/40 text-center">
+            
+            <div class="mb-5">
+                <span class="inline-flex items-center gap-2 text-champagne text-xs sm:text-sm font-bold mb-1">
+                    <i class="fas fa-film"></i>
+                    <span>عرض خاص لعيونك</span>
+                </span>
+                <h2 class="font-ruqaa text-3xl sm:text-5xl gold-foil-text leading-snug">
+                    تتر حكايتنا
+                </h2>
+            </div>
+
+            <!-- شاشة قاعة السينما للتتر الصاعد -->
+            <div id="cinemaViewport" class="cinema-viewport rounded-3xl border border-champagne/25 shadow-2xl px-4 sm:px-10">
+                <div id="creditsRoller" class="credits-roller text-center px-2">
+                    <!-- نص الرسالة الطويلة يوضع هنا -->
+                </div>
+            </div>
+
+            <!-- أزرار التحكم بالتتر -->
+            <div class="mt-6 flex flex-wrap items-center justify-center gap-3">
+                <button onclick="toggleCreditsPause()" class="editorial-glass px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-white hover:border-champagne transition flex items-center gap-2">
+                    <i id="creditsPlayPauseIcon" class="fas fa-pause text-champagne"></i>
+                    <span id="creditsPlayPauseText">إيقاف مؤقت</span>
+                </button>
+
+                <button onclick="toggleCreditsVelocity()" class="editorial-glass px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-champagne hover:bg-white/10 transition flex items-center gap-2">
+                    <i class="fas fa-forward"></i>
+                    <span>السرعة: <span id="creditsSpeedLabel">1x</span></span>
+                </button>
+
+                <button onclick="restartCreditsCrawl()" class="editorial-glass px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-roseSilk hover:text-white transition flex items-center gap-2">
+                    <i class="fas fa-rotate-right"></i>
+                    <span>إعادة من البداية</span>
+                </button>
+            </div>
+
+            <!-- زر المفاجأة النهائية الكبرى -->
+            <div class="mt-8 pt-6 border-t border-white/10 flex flex-col items-center gap-4">
+                <button onclick="triggerGrandFinale()" class="magnetic-gold-btn px-8 py-4 rounded-2xl font-black text-base sm:text-xl flex items-center gap-3 cursor-pointer shadow-2xl">
+                    <span>اضغطي هنا في النهاية ❤️</span>
+                </button>
+
+                <button onclick="switchScene(1)" class="text-xs text-roseSilk/70 hover:text-champagne underline transition">
+                    إعادة الرحلة من البداية (0%)
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================
+         عارض الصور السينمائي (Lightbox Modal)
+         ========================================================= -->
+    <div id="cinematicLightbox" onclick="closeLightbox()" class="fixed inset-0 z-50 hidden bg-black/92 backdrop-blur-xl flex items-center justify-center p-4">
+        <div onclick="event.stopPropagation()" class="max-w-xl w-full editorial-glass rounded-3xl p-5 sm:p-7 border border-champagne/45 relative text-center">
+            <button onclick="closeLightbox()" class="absolute -top-3.5 -left-3.5 w-10 h-10 rounded-full bg-rubyRoyal text-white flex items-center justify-center shadow-lg hover:scale-110 transition">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <div class="rounded-2xl overflow-hidden bg-black/60 mb-4 border border-white/10">
+                <img id="lbImage" src="image_6f8d23.png" alt="ذكرى سعيدة" class="w-full max-h-[60vh] object-contain mx-auto">
+            </div>
+
+            <span id="lbDate" class="inline-block text-xs font-bold text-champagne bg-champagne/10 border border-champagne/30 px-3 py-1 rounded-full mb-2"></span>
+            <p id="lbCaption" class="font-amiri text-2xl sm:text-3xl text-white font-bold leading-relaxed mb-5"></p>
+
+            <button onclick="sendLightboxHearts(event)" class="px-6 py-2.5 rounded-full bg-gradient-to-l from-rubyRoyal to-rubyGlow text-white font-bold text-sm shadow-lg hover:scale-105 active:scale-95 transition inline-flex items-center gap-2">
+                <i class="fas fa-heart animate-pulse"></i>
+                <span>أرسلي قلوب على الصورة ❤️</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- =========================================================
+         بطاقة الرسالة الختامية مع الألعاب النارية (Grand Finale Modal)
+         ========================================================= -->
+    <div id="finaleModal" onclick="closeFinaleModal()" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-lg flex items-center justify-center p-5">
+        <div onclick="event.stopPropagation()" class="max-w-lg w-full editorial-glass rounded-[2.5rem] p-8 sm:p-11 border-2 border-champagne/60 text-center relative shadow-[0_0_80px_rgba(255,30,86,0.5)]">
+            <div class="w-20 h-20 mx-auto mb-5 rounded-full bg-rubyRoyal/25 border border-champagne/50 flex items-center justify-center glass-heart-3d">
+                <i class="fas fa-heart text-4xl text-rubyGlow"></i>
+            </div>
+            <h3 id="finaleHerTitle" class="font-ruqaa text-3xl sm:text-5xl gold-foil-text mb-4 leading-snug">
+                بحبك يا أغلى ما ليا
+            </h3>
+            <p class="font-amiri text-2xl sm:text-3xl text-roseSilk leading-relaxed mb-7">
+                إنتي أجمل قدر حصل في حياتي، وهفضل أحبك النهاردة وبكرة ولآخر نفس في عمري ❤️✨
+            </p>
+            <div class="flex flex-wrap justify-center gap-3">
+                <button onclick="launchFireworksShow(6)" class="magnetic-gold-btn px-6 py-3 rounded-xl font-black text-sm">
+                    ألعاب نارية أكتر 🎆
+                </button>
+                <button onclick="closeFinaleModal()" class="editorial-glass px-6 py-3 rounded-xl text-sm font-bold text-white">
+                    إغلاق
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- =========================================================
+         لوحة تخصيص العميل (Customizer Drawer)
+         ========================================================= -->
+    <div id="customizerDrawer" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex justify-end">
+        <div class="w-full max-w-xl bg-[#0b0411] border-r border-champagne/35 h-full flex flex-col shadow-2xl">
+            
+            <!-- رأس اللوحة -->
+            <div class="p-5 border-b border-white/10 flex items-center justify-between bg-gradient-to-l from-rubyRoyal/30 to-transparent">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-champagne/15 border border-champagne/40 flex items-center justify-center text-champagne">
+                        <i class="fas fa-wand-magic-sparkles"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-extrabold text-base sm:text-lg text-champagne">تخصيص الهدية</h3>
+                        <p class="text-[11px] text-roseSilk">عدّل البيانات والصور ثم صدّر الملف الجاهز للإرسال</p>
+                    </div>
+                </div>
+                <button onclick="closeCustomizerDrawer()" class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <!-- محتوى اللوحة -->
+            <div class="p-5 sm:p-6 overflow-y-auto space-y-6 flex-1">
+                
+                <!-- زر التصدير الذهبي الضخم -->
+                <div class="p-4 rounded-2xl bg-gradient-to-l from-champagne/15 to-rubyRoyal/15 border border-champagne/50 space-y-3">
+                    <p class="text-xs text-white/90 leading-relaxed">
+                        بعد الانتهاء من كتابة اسمها ورفع صوركم، اضغط على الزر الذهبي بالأسفل لتحميل ملف <strong>HTML نهائي</strong> مدمج بداخله كل شيء ومخفي منه زر الإعدادات تماماً لإرساله لها مباشرة!
+                    </p>
+                    <button onclick="exportReadyGiftFile()" class="magnetic-gold-btn w-full py-3.5 px-5 rounded-xl font-black text-sm sm:text-base flex items-center justify-center gap-2 cursor-pointer">
+                        <span>حفظ وتصدير الموقع جاهز للإرسال 🎁</span>
+                    </button>
+                </div>
+
+                <!-- 1. اسم الحبيبة -->
+                <div>
+                    <label class="block text-xs font-bold text-champagne mb-2">1. اسم حبيبتك (يظهر في التحية والنهاية)</label>
+                    <input id="cfgHerName" type="text" class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/15 text-sm text-white focus:border-champagne focus:outline-none" placeholder="مثال: مريم">
+                </div>
+
+                <!-- 2. اليوم المميز -->
+                <div class="space-y-3 p-4 rounded-2xl bg-white/[0.03] border border-white/10">
+                    <label class="block text-xs font-bold text-champagne">2. اليوم المميز بينكما</label>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div>
+                            <span class="text-[11px] text-roseSilk block mb-1">التاريخ الفعلي (لحساب العداد)</span>
+                            <input id="cfgDateRaw" type="date" class="w-full px-3 py-2.5 rounded-xl bg-black/50 border border-white/15 text-sm text-white focus:border-champagne focus:outline-none">
+                        </div>
+                        <div>
+                            <span class="text-[11px] text-roseSilk block mb-1">نص التاريخ الظاهر لها</span>
+                            <input id="cfgDateDisplay" type="text" class="w-full px-3 py-2.5 rounded-xl bg-black/50 border border-white/15 text-sm text-white focus:border-champagne focus:outline-none" placeholder="14 فبراير 2023">
+                        </div>
+                    </div>
+                    <div>
+                        <span class="text-[11px] text-roseSilk block mb-1">عنوان اليوم المميز</span>
+                        <input id="cfgDateHeading" type="text" class="w-full px-3 py-2.5 rounded-xl bg-black/50 border border-white/15 text-sm text-white focus:border-champagne focus:outline-none">
+                    </div>
+                    <div>
+                        <span class="text-[11px] text-roseSilk block mb-1">الجملة الرومانسية تحت التاريخ</span>
+                        <input id="cfgDateQuote" type="text" class="w-full px-3 py-2.5 rounded-xl bg-black/50 border border-white/15 text-sm text-white focus:border-champagne focus:outline-none">
+                    </div>
+                </div>
+
+                <!-- 3. صور اللحظات السعيدة -->
+                <div class="space-y-3 p-4 rounded-2xl bg-white/[0.03] border border-white/10">
+                    <div class="flex items-center justify-between">
+                        <label class="text-xs font-bold text-champagne">3. صور اللحظات السعيدة</label>
+                        <button onclick="addNewPhotoSlot()" class="px-3 py-1.5 rounded-lg bg-rubyRoyal text-white text-xs font-bold hover:opacity-90 transition">
+                            + إضافة صورة
+                        </button>
+                    </div>
+                    <div id="cfgPhotosList" class="space-y-3">
+                        <!-- عناصر تعديل الصور -->
+                    </div>
+                </div>
+
+                <!-- 4. نص التتر السينمائي -->
+                <div>
+                    <label class="block text-xs font-bold text-champagne mb-2">4. نص التتر السينمائي الطويل</label>
+                    <textarea id="cfgCreditsText" rows="7" class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/15 text-sm text-white focus:border-champagne focus:outline-none leading-relaxed"></textarea>
+                </div>
+            </div>
+
+            <!-- تذييل اللوحة -->
+            <div class="p-4 border-t border-white/10 bg-black/60 flex items-center justify-between gap-3">
+                <button onclick="resetToDefaultState()" class="text-xs text-roseSilk/70 hover:text-white underline">
+                    استعادة الافتراضي
+                </button>
+                <div class="flex gap-2">
+                    <button onclick="closeCustomizerDrawer()" class="px-4 py-2.5 rounded-xl bg-white/10 text-xs font-bold text-white hover:bg-white/20">
+                        إغلاق
+                    </button>
+                    <button onclick="saveCustomizerChanges()" class="px-6 py-2.5 rounded-xl bg-gradient-to-l from-rubyRoyal to-rubyGlow text-xs font-extrabold text-white shadow-lg">
+                        معاينة التعديلات
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- إشعار Toast أنيق -->
+    <div id="toastNotification" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 hidden px-6 py-3 rounded-full bg-champagne text-voidBlack font-black text-xs sm:text-sm shadow-2xl"></div>
+
+    <script>
+        const ATTACHED_MEMORY_IMAGE = "image_6f8d23.png";
+
+        /* =========================================================
+           1. توليد بطاقات فنية افتراضية فاخرة (SVG)
+           ========================================================= */
+        function createRoyalArtSVG(c1, c2, title, sub) {
+            const svg = `
+            <svg xmlns="http://www.w3.org/2000/svg" width="700" height="700" viewBox="0 0 700 700">
+                <defs>
+                    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="${c1}"/>
+                        <stop offset="100%" stop-color="${c2}"/>
+                    </linearGradient>
+                    <radialGradient id="halo" cx="50%" cy="42%" r="48%">
+                        <stop offset="0%" stop-color="#f5d08a" stop-opacity="0.4"/>
+                        <stop offset="100%" stop-color="transparent"/>
+                    </radialGradient>
+                </defs>
+                <rect width="700" height="700" fill="url(#g)"/>
+                <circle cx="350" cy="290" r="240" fill="url(#halo)"/>
+                <circle cx="350" cy="290" r="155" fill="none" stroke="#f5d08a" stroke-width="1.5" stroke-dasharray="6 8" opacity="0.55"/>
+                <path d="M350 400 C350 400 220 312 220 230 C220 184 257 152 296 152 C322 152 341 168 350 187 C359 168 378 152 404 152 C443 152 480 184 480 230 C480 312 350 400 350 400 Z" fill="#ff1e56" opacity="0.92"/>
+                <path d="M350 380 C350 380 245 308 245 240 C245 204 274 178 306 178 C327 178 343 190 350 206 C357 190 373 178 394 178 C426 178 455 204 455 240 C455 308 350 380 350 380 Z" fill="#f5d08a" opacity="0.88"/>
+                <text x="350" y="495" font-family="Cairo, Arial, sans-serif" font-size="34" fill="#ffffff" text-anchor="middle" font-weight="bold">${title}</text>
+                <text x="350" y="542" font-family="Cairo, Arial, sans-serif" font-size="20" fill="#f5d08a" text-anchor="middle">${sub}</text>
+            </svg>`;
+            return 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(svg);
+        }
+
+        const DEFAULT_DATA = {
+            herName: "أميرتي",
+            specialDateRaw: "2023-02-14",
+            specialDateDisplay: "14 فبراير 2023",
+            dateHeading: "اليوم اللي بدأت فيه حكايتنا",
+            dateQuote: "في اليوم ده تحديداً، اتولد قلبي من جديد وبقى لعمري أجمل معنى بوجودك",
+            photos: [
+                {
+                    url: ATTACHED_MEMORY_IMAGE,
+                    date: "بداية الحكاية",
+                    caption: "أول مرة عيني جت في عينك.. حسيت إن الدنيا كلها وقفت عندك"
+                },
+                {
+                    url: ATTACHED_MEMORY_IMAGE,
+                    date: "أجمل يوم",
+                    caption: "ضحكتك هي أحلى موسيقى سمعتها في حياتي وسبب سعادتي كل يوم"
+                },
+                {
+                    url: ATTACHED_MEMORY_IMAGE,
+                    date: "وعد العمر كله",
+                    caption: "معاكي كل لحظة بتتحول لذكرى محفورة في قلبي للأبد"
+                }
+            ],
+            creditsText: `إلى حبيبتي ونور عيني...\n\nمكنتش أعرف إن في إنسان ممكن يغير الكون كله في عيني،\nلحد ما دخلتي حياتي ونورتي كل تفصيلة فيها.\n\nمن يوم ما عرفتك وأنا بشكر ربنا عليكي كل لحظة،\nلأنك أجمل نعمة وأغلى هدية جتلي في عمري.\n\nإنتي مش بس حبيبتي،\nإنتي أماني، وسندي، وضحكتي اللي طالعة من القلب،\nوالمكان اللي برتاح فيه من الدنيا كلها.\n\nشكراً على حبك، على اهتمامك،\nوعلى وجودك جنبي في كل وقت.\n\nأوعدك إني هفضل أحبك وأحافظ عليكي،\nوكل سنة وإحنا مع بعض وبنكبر سوا في حب وسعادة.\n\nبحبك للأبد ❤️`
+        };
+
+        const STORAGE_KEY = 'royalLoveExperience_v3_attached';
+        let appData = window.__EMBEDDED_ROYAL_GIFT__ || JSON.parse(localStorage.getItem(STORAGE_KEY)) || JSON.parse(JSON.stringify(DEFAULT_DATA));
+        if (appData && Array.isArray(appData.photos)) {
+            appData.photos = appData.photos.map(p => ({
+                ...p,
+                url: (!p.url || p.url.startsWith('data:image/svg+xml')) ? ATTACHED_MEMORY_IMAGE : p.url
+            }));
+        }
+
+        /* =========================================================
+           2. محرك النجوم، بتلات الورد، أثر اللمس، والألعاب النارية (60fps Canvas)
+           ========================================================= */
+        const canvas = document.getElementById('universeCanvas');
+        const ctx = canvas.getContext('2d');
+        let W = window.innerWidth;
+        let H = window.innerHeight;
+
+        function resizeUniverse() {
+            W = canvas.width = window.innerWidth;
+            H = canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeUniverse);
+        resizeUniverse();
+
+        const stars = [];
+        const particles = [];
+
+        // إنشاء نجوم متلألئة في السماء
+        for (let i = 0; i < 85; i++) {
+            stars.push({
+                x: Math.random() * W,
+                y: Math.random() * H,
+                r: Math.random() * 1.8 + 0.4,
+                phase: Math.random() * Math.PI * 2,
+                speed: Math.random() * 0.03 + 0.01,
+                color: Math.random() > 0.3 ? '#f5d08a' : '#ffffff'
+            });
+        }
+
+        class LoveParticle {
+            constructor(x, y, kind = 'trail') {
+                this.x = x;
+                this.y = y;
+                this.kind = kind; // 'trail' | 'petal' | 'firework'
+                this.alpha = 1;
+                this.rotation = Math.random() * Math.PI * 2;
+                this.rotSpeed = (Math.random() - 0.5) * 0.08;
+
+                if (kind === 'trail') {
+                    this.shape = Math.random() > 0.45 ? 'heart' : 'star';
+                    this.size = Math.random() * 8 + 4;
+                    this.vx = (Math.random() - 0.5) * 1.8;
+                    this.vy = -(Math.random() * 1.6 + 0.5);
+                    this.decay = 0.024;
+                    this.color = Math.random() > 0.45 ? '#f5d08a' : '#ff1e56';
+                } else if (kind === 'petal') {
+                    this.shape = Math.random() > 0.35 ? 'petal' : 'heart';
+                    this.size = Math.random() * 11 + 6;
+                    this.vx = (Math.random() - 0.5) * 2.5;
+                    this.vy = Math.random() * 2.2 + 1.2;
+                    this.sway = Math.random() * 0.05 + 0.02;
+                    this.swayOffset = Math.random() * Math.PI * 2;
+                    this.decay = 0.005;
+                    this.color = Math.random() > 0.3 ? '#d90429' : '#f5d08a';
+                } else if (kind === 'firework') {
+                    this.shape = Math.random() > 0.3 ? 'heart' : 'spark';
+                    this.size = Math.random() * 13 + 6;
+                    const angle = Math.random() * Math.PI * 2;
+                    const force = Math.random() * 10 + 3;
+                    this.vx = Math.cos(angle) * force;
+                    this.vy = Math.sin(angle) * force - 1.5;
+                    this.gravity = 0.13;
+                    this.decay = 0.013;
+                    this.color = ['#ff1e56', '#f5d08a', '#ff758f', '#ffffff'][Math.floor(Math.random() * 4)];
+                }
+            }
+
+            update() {
+                this.rotation += this.rotSpeed;
+                if (this.kind === 'petal') {
+                    this.x += this.vx + Math.sin(this.y * 0.02 + this.swayOffset) * 1.2;
+                    this.y += this.vy;
+                } else if (this.kind === 'firework') {
+                    this.x += this.vx;
+                    this.y += this.vy;
+                    this.vy += this.gravity;
+                    this.vx *= 0.97;
+                } else {
+                    this.x += this.vx;
+                    this.y += this.vy;
+                }
+                this.alpha -= this.decay;
+            }
+
+            draw() {
+                if (this.alpha <= 0) return;
+                ctx.save();
+                ctx.globalAlpha = Math.max(0, this.alpha);
+                ctx.translate(this.x, this.y);
+                ctx.rotate(this.rotation);
+                ctx.fillStyle = this.color;
+                ctx.shadowColor = this.color;
+                ctx.shadowBlur = 10;
+
+                if (this.shape === 'heart') {
+                    const s = this.size;
+                    ctx.beginPath();
+                    ctx.moveTo(0, -s * 0.2);
+                    ctx.bezierCurveTo(0, -s * 0.5, -s * 0.5, -s * 0.5, -s * 0.5, -s * 0.2);
+                    ctx.bezierCurveTo(-s * 0.5, s * 0.15, 0, s * 0.35, 0, s * 0.5);
+                    ctx.bezierCurveTo(0, s * 0.35, s * 0.5, s * 0.15, s * 0.5, -s * 0.2);
+                    ctx.bezierCurveTo(s * 0.5, -s * 0.5, 0, -s * 0.5, 0, -s * 0.2);
+                    ctx.fill();
+                } else if (this.shape === 'petal') {
+                    const s = this.size;
+                    ctx.beginPath();
+                    ctx.ellipse(0, 0, s * 0.65, s * 0.35, 0, 0, Math.PI * 2);
+                    ctx.fill();
+                } else {
+                    ctx.beginPath();
+                    ctx.arc(0, 0, this.size * 0.4, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+                ctx.restore();
+            }
+        }
+
+        function spawnFireworkBurst(x, y, count = 55) {
+            for (let i = 0; i < count; i++) {
+                particles.push(new LoveParticle(x, y, 'firework'));
+            }
+        }
+
+        function showerRosePetals(count = 45) {
+            for (let i = 0; i < count; i++) {
+                particles.push(new LoveParticle(Math.random() * W, -20 - Math.random() * 200, 'petal'));
+            }
+        }
+
+        // تفاعل حركة الماوس ولمس الشاشة
+        let lastPointerStamp = 0;
+        function emitPointerTrail(x, y) {
+            const now = Date.now();
+            if (now - lastPointerStamp > 32) {
+                particles.push(new LoveParticle(x, y, 'trail'));
+                lastPointerStamp = now;
+            }
+        }
+
+        window.addEventListener('mousemove', e => emitPointerTrail(e.clientX, e.clientY));
+        window.addEventListener('touchmove', e => {
+            if (e.touches[0]) emitPointerTrail(e.touches[0].clientX, e.touches[0].clientY);
+        }, { passive: true });
+
+        function renderCanvasFrame() {
+            ctx.clearRect(0, 0, W, H);
+
+            // رسم النجوم المتلألئة
+            for (let s of stars) {
+                s.phase += s.speed;
+                const alpha = 0.25 + Math.abs(Math.sin(s.phase)) * 0.75;
+                ctx.save();
+                ctx.globalAlpha = alpha;
+                ctx.fillStyle = s.color;
+                ctx.beginPath();
+                ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.restore();
+            }
+
+            // رسم الجزيئات والقلوب والبتلات
+            for (let i = particles.length - 1; i >= 0; i--) {
+                particles[i].update();
+                particles[i].draw();
+                if (particles[i].alpha <= 0 || particles[i].y > H + 50) {
+                    particles.splice(i, 1);
+                }
+            }
+
+            requestAnimationFrame(renderCanvasFrame);
+        }
+
+        /* =========================================================
+           3. محرك البيانو الرومانسي المولد برمجياً (Web Audio API)
+           ========================================================= */
+        let audioCtx = null;
+        let isMusicPlaying = false;
+        let melodyInterval = null;
+        let noteStep = 0;
+
+        // مقطوعة بيانو رومانسية هادئة (Arpeggio in C Major / A Minor / F Major / G)
+        const romanticMelody = [
+            261.63, 329.63, 392.00, 493.88, 523.25, 493.88, 392.00, 329.63, // Cmaj7
+            220.00, 261.63, 329.63, 392.00, 440.00, 392.00, 329.63, 261.63, // Am7
+            174.61, 220.00, 261.63, 349.23, 440.00, 349.23, 261.63, 220.00, // Fmaj7
+            196.00, 246.94, 293.66, 392.00, 493.88, 392.00, 293.66, 246.94  // G6
+        ];
+
+        function triggerPianoNote(freq) {
+            if (!audioCtx) return;
+            const now = audioCtx.currentTime;
+
+            const osc1 = audioCtx.createOscillator();
+            const osc2 = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+
+            osc1.type = 'sine';
+            osc2.type = 'triangle';
+            osc1.frequency.setValueAtTime(freq, now);
+            osc2.frequency.setValueAtTime(freq * 2, now); // توافقية ناعمة
+
+            const subGain = audioCtx.createGain();
+            subGain.gain.setValueAtTime(0.15, now);
+
+            gain.gain.setValueAtTime(0.0001, now);
+            gain.gain.exponentialRampToValueAtTime(0.055, now + 0.04);
+            gain.gain.exponentialRampToValueAtTime(0.0001, now + 2.4);
+
+            osc1.connect(gain);
+            osc2.connect(subGain);
+            subGain.connect(gain);
+            gain.connect(audioCtx.destination);
+
+            osc1.start(now);
+            osc2.start(now);
+            osc1.stop(now + 2.5);
+            osc2.stop(now + 2.5);
+        }
+
+        function startPianoMusic() {
+            if (isMusicPlaying) return;
+            if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            if (audioCtx.state === 'suspended') audioCtx.resume();
+
+            isMusicPlaying = true;
+            document.getElementById('audioPing').classList.remove('hidden');
+            document.getElementById('audioIcon').className = 'fas fa-volume-high';
+            document.getElementById('audioLabel').textContent = 'كتم الصوت';
+
+            const playNext = () => {
+                triggerPianoNote(romanticMelody[noteStep % romanticMelody.length]);
+                noteStep++;
+            };
+            playNext();
+            melodyInterval = setInterval(playNext, 540);
+        }
+
+        function stopPianoMusic() {
+            isMusicPlaying = false;
+            clearInterval(melodyInterval);
+            document.getElementById('audioPing').classList.add('hidden');
+            document.getElementById('audioIcon').className = 'fas fa-volume-xmark';
+            document.getElementById('audioLabel').textContent = 'تشغيل الموسيقى';
+        }
+
+        function togglePianoMusic() {
+            if (isMusicPlaying) stopPianoMusic();
+            else startPianoMusic();
+        }
+
+        /* =========================================================
+           4. إدارة المشاهد الأربعة وانتقال الستارة الضوئية
+           ========================================================= */
+        let currentSceneNum = 1;
+
+        function switchScene(targetNum) {
+            const curtain = document.getElementById('lightCurtain');
+            const currentEl = document.getElementById('scene' + currentSceneNum);
+            const nextEl = document.getElementById('scene' + targetNum);
+
+            curtain.classList.add('active');
+
+            setTimeout(() => {
+                currentEl.classList.remove('visible-scene');
+                currentEl.classList.remove('active-scene');
+
+                nextEl.classList.add('active-scene');
+                window.scrollTo({ top: 0, behavior: 'instant' });
+
+                requestAnimationFrame(() => {
+                    nextEl.classList.add('visible-scene');
+                    curtain.classList.remove('active');
+                });
+
+                currentSceneNum = targetNum;
+
+                if (targetNum === 1) startLoveLoaderSequence();
+                if (targetNum === 4) startCinemaCredits();
+            }, 620);
+        }
+
+        /* =========================================================
+           5. المشهد الأول: عداد نسبة الحب المئوية (0% إلى 100%)
+           ========================================================= */
+        let loaderAnimationId = null;
+
+        function startLoveLoaderSequence() {
+            const ring = document.getElementById('progressRing');
+            const numEl = document.getElementById('lovePercentNum');
+            const quoteEl = document.getElementById('dynamicLoveQuote');
+            const numBox = document.getElementById('numericCounterBox');
+            const infBox = document.getElementById('infinityRevealBox');
+            const enterBtn = document.getElementById('enterWorldBtn');
+
+            const circumference = 2 * Math.PI * 112; // ~703.71
+            ring.style.strokeDasharray = circumference;
+            ring.style.strokeDashoffset = circumference;
+
+            numBox.classList.remove('hidden');
+            infBox.classList.add('hidden');
+            infBox.classList.remove('flex');
+            enterBtn.classList.add('hidden');
+            numEl.textContent = '0';
+
+            const stages = [
+                { at: 0, text: "ببدأ أعد نبضات قلبي أول ما اسمك ييجي في بالي..." },
+                { at: 25, text: "25%.. ده لسه مجرد نظرة واحدة من عيونك!" },
+                { at: 50, text: "50%.. قلبي خلاص مبقاش شايف غيرك في الدنيا" },
+                { at: 75, text: "75%.. كل تفصيلة فيكي بتخليني أحبك أكتر وأكتر" },
+                { at: 95, text: "99%.. مفيش أرقام في الكون تقدر توصف غلاوتك..." }
+            ];
+
+            let lastStage = -1;
+            const totalDuration = 4600; // تسارع درامي لمدة 4.6 ثانية
+            const t0 = performance.now();
+
+            if (loaderAnimationId) cancelAnimationFrame(loaderAnimationId);
+
+            function step(now) {
+                const elapsed = now - t0;
+                const rawProgress = Math.min(elapsed / totalDuration, 1);
+                // منحنى تسارع درامي (يبدأ بهدوء ثم يتسارع ثم يستقر عند 100%)
+                const eased = rawProgress < 0.5
+                    ? 2 * rawProgress * rawProgress
+                    : 1 - Math.pow(-2 * rawProgress + 2, 2) / 2;
+
+                const pct = Math.floor(eased * 100);
+                numEl.textContent = pct;
+                ring.style.strokeDashoffset = circumference - (eased * circumference);
+
+                for (let i = stages.length - 1; i >= 0; i--) {
+                    if (pct >= stages[i].at && lastStage !== stages[i].at) {
+                        lastStage = stages[i].at;
+                        quoteEl.style.opacity = '0';
+                        setTimeout(() => {
+                            quoteEl.textContent = stages[i].text;
+                            quoteEl.style.opacity = '1';
+                        }, 140);
+                        break;
+                    }
+                }
+
+                if (rawProgress < 1) {
+                    loaderAnimationId = requestAnimationFrame(step);
+                } else {
+                    // الوصول لـ 100%: انفجار ضوئي + بتلات ورد + تحول لـ ∞ + ظهور الزر المغناطيسي
+                    onReach100Percent(numBox, infBox, quoteEl, enterBtn);
+                }
+            }
+
+            loaderAnimationId = requestAnimationFrame(step);
+        }
+
+        function onReach100Percent(numBox, infBox, quoteEl, enterBtn) {
+            const coreRect = document.getElementById('energyCoreBox').getBoundingClientRect();
+            spawnFireworkBurst(coreRect.left + coreRect.width / 2, coreRect.top + coreRect.height / 2, 85);
+            showerRosePetals(50);
+
+            setTimeout(() => {
+                numBox.classList.add('hidden');
+                infBox.classList.remove('hidden');
+                infBox.classList.add('flex');
+                quoteEl.textContent = "اكتملت النسبة.. ولسه حبي ليكي بيزيد كل ثانية!";
+                enterBtn.classList.remove('hidden');
+            }, 400);
+        }
+
+        function enterOurWorld() {
+            // تشغيل مقطوعة البيانو الرومانسية تلقائياً عند الضغط على "ادخلي عالمنا"
+            startPianoMusic();
+            spawnFireworkBurst(W / 2, H / 2, 60);
+            switchScene(2);
+        }
+
+        /* =========================================================
+           6. تحديث بيانات المشهد الثاني والثالث والرابع
+           ========================================================= */
+        let clockInterval = null;
+
+        function populateAllScenes() {
+            document.getElementById('displayHerGreeting').textContent = `إلى ${appData.herName}.. أغلى إنسانة في حياتي`;
+            document.getElementById('displayMilestoneHeading').textContent = appData.dateHeading;
+            document.getElementById('displaySpecialDate').textContent = appData.specialDateDisplay;
+            document.getElementById('displayMilestoneQuote').textContent = `"${appData.dateQuote}"`;
+            document.getElementById('finaleHerTitle').textContent = `بحبك يا ${appData.herName} ❤️`;
+
+            updateMilestoneCounter();
+            if (clockInterval) clearInterval(clockInterval);
+            clockInterval = setInterval(updateMilestoneCounter, 1000);
+
+            renderPolaroidGallery();
+            renderCreditsContent();
+        }
+
+        function updateMilestoneCounter() {
+            const start = new Date(appData.specialDateRaw + 'T00:00:00');
+            const now = new Date();
+            const diff = Math.max(0, now - start);
+
+            const secTotal = Math.floor(diff / 1000);
+            const days = Math.floor(secTotal / 86400);
+            const hours = Math.floor((secTotal % 86400) / 3600);
+            const mins = Math.floor((secTotal % 3600) / 60);
+            const secs = secTotal % 60;
+
+            document.getElementById('liveDays').textContent = days.toLocaleString('ar-EG');
+            document.getElementById('liveHours').textContent = hours.toLocaleString('ar-EG');
+            document.getElementById('liveMinutes').textContent = mins.toLocaleString('ar-EG');
+            document.getElementById('liveSeconds').textContent = secs.toLocaleString('ar-EG');
+        }
+
+        /* =========================================================
+           7. معرض Polaroid ثلاثي الأبعاد + عارض Lightbox
+           ========================================================= */
+        const tiltAngles = [-2.2, 1.8, -1.5, 2.1, -1.8, 1.5];
+
+        function renderPolaroidGallery() {
+            const grid = document.getElementById('polaroidGalleryGrid');
+            grid.innerHTML = '';
+
+            appData.photos.forEach((photo, idx) => {
+                const baseAngle = tiltAngles[idx % tiltAngles.length];
+                const wrap = document.createElement('div');
+                wrap.className = 'polaroid-perspective';
+                const safeUrl = photo.url || ATTACHED_MEMORY_IMAGE;
+
+                wrap.innerHTML = `
+                    <div class="polaroid-card cursor-pointer group" style="transform: rotate(${baseAngle}deg);" onclick="openLightbox(${idx})">
+                        <div class="polaroid-sheen"></div>
+                        <div class="relative aspect-square rounded-2xl overflow-hidden mb-4 bg-black/50 border border-white/10">
+                            <img src="${safeUrl}" alt="ذكرى سعيدة"
+                                 onerror="if(this.src.indexOf('${ATTACHED_MEMORY_IMAGE}') === -1) { this.src='${ATTACHED_MEMORY_IMAGE}'; }"
+                                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent opacity-60 group-hover:opacity-25 transition"></div>
+                            <span class="absolute top-3 right-3 px-3 py-1 rounded-full bg-black/65 backdrop-blur-md border border-champagne/35 text-[11px] font-bold text-champagne">
+                                ${photo.date || 'ذكرى مميزة'}
+                            </span>
+                        </div>
+                        <p class="font-amiri text-xl sm:text-2xl text-center text-white group-hover:text-champagne transition font-bold leading-snug px-2">
+                            ${photo.caption || 'أجمل لحظة في عمري'}
+                        </p>
+                    </div>
+                `;
+
+                const card = wrap.querySelector('.polaroid-card');
+                const sheen = wrap.querySelector('.polaroid-sheen');
+
+                card.addEventListener('mousemove', e => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const rx = ((y - rect.height / 2) / (rect.height / 2)) * -11;
+                    const ry = ((x - rect.width / 2) / (rect.width / 2)) * 11;
+                    card.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg) scale3d(1.04, 1.04, 1.04)`;
+                    sheen.style.background = `radial-gradient(circle at ${(x / rect.width) * 100}% ${(y / rect.height) * 100}%, rgba(245, 208, 138, 0.3), transparent 65%)`;
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = `rotate(${baseAngle}deg) scale3d(1, 1, 1)`;
+                });
+
+                grid.appendChild(wrap);
+            });
+        }
+
+        function openLightbox(idx) {
+            const p = appData.photos[idx];
+            if (!p) return;
+            const lbImg = document.getElementById('lbImage');
+            lbImg.onerror = function() {
+                if (this.src.indexOf(ATTACHED_MEMORY_IMAGE) === -1) {
+                    this.src = ATTACHED_MEMORY_IMAGE;
+                }
+            };
+            lbImg.src = p.url || ATTACHED_MEMORY_IMAGE;
+            document.getElementById('lbDate').textContent = p.date || 'ذكرى من القلب';
+            document.getElementById('lbCaption').textContent = p.caption;
+            document.getElementById('cinematicLightbox').classList.remove('hidden');
+        }
+
+        function closeLightbox() {
+            document.getElementById('cinematicLightbox').classList.add('hidden');
+        }
+
+        function sendLightboxHearts(e) {
+            spawnFireworkBurst(e.clientX || W / 2, e.clientY || H / 2, 45);
+            showToast('قلوبك وصلت على الصورة ❤️');
+        }
+
+        /* =========================================================
+           8. المشهد الرابع: التتر السينمائي + الألعاب النارية الختامية
+           ========================================================= */
+        let creditsPosY = 420;
+        let creditsPaused = false;
+        let creditsSpeed = 1;
+        let creditsRaf = null;
+
+        function renderCreditsContent() {
+            const roller = document.getElementById('creditsRoller');
+            const lines = appData.creditsText.split('\n');
+
+            roller.innerHTML = `
+                <div class="py-12 space-y-4">
+                    <div class="text-champagne text-lg tracking-[0.6em] mb-4">✦ ✦ ✦</div>
+                    <h3 class="font-ruqaa text-3xl sm:text-4xl gold-foil-text mb-6">إلى ${appData.herName}</h3>
+                    ${lines.map(line => {
+                        if (line.trim() === '') return '<div class="h-6"></div>';
+                        return `<p class="font-amiri text-2xl sm:text-3xl md:text-4xl text-white/95 leading-relaxed">${line}</p>`;
+                    }).join('')}
+                    <div class="pt-14 pb-6">
+                        <i class="fas fa-heart text-4xl text-rubyGlow glass-heart-3d mb-3"></i>
+                        <p class="font-ruqaa text-3xl sm:text-4xl gold-foil-text">
+                            بحبك يا ${appData.herName} للأبد ❤️
+                        </p>
+                    </div>
+                </div>
+            `;
+        }
+
+        function startCinemaCredits() {
+            const viewport = document.getElementById('cinemaViewport');
+            const roller = document.getElementById('creditsRoller');
+            creditsPosY = viewport.offsetHeight;
+            creditsPaused = false;
+            document.getElementById('creditsPlayPauseIcon').className = 'fas fa-pause text-champagne';
+            document.getElementById('creditsPlayPauseText').textContent = 'إيقاف مؤقت';
+
+            if (creditsRaf) cancelAnimationFrame(creditsRaf);
+
+            function tick() {
+                if (!creditsPaused) {
+                    creditsPosY -= 0.72 * creditsSpeed;
+                    if (creditsPosY < -roller.offsetHeight - 25) {
+                        creditsPosY = viewport.offsetHeight;
+                    }
+                    roller.style.transform = `translate3d(0, ${creditsPosY}px, 0)`;
+                }
+                creditsRaf = requestAnimationFrame(tick);
+            }
+            creditsRaf = requestAnimationFrame(tick);
+        }
+
+        function toggleCreditsPause() {
+            creditsPaused = !creditsPaused;
+            document.getElementById('creditsPlayPauseIcon').className = creditsPaused ? 'fas fa-play text-champagne' : 'fas fa-pause text-champagne';
+            document.getElementById('creditsPlayPauseText').textContent = creditsPaused ? 'تشغيل التتر' : 'إيقاف مؤقت';
+        }
+
+        function toggleCreditsVelocity() {
+            creditsSpeed = creditsSpeed === 1 ? 2.2 : 1;
+            document.getElementById('creditsSpeedLabel').textContent = creditsSpeed === 1 ? '1x' : '2x';
+        }
+
+        function restartCreditsCrawl() {
+            const viewport = document.getElementById('cinemaViewport');
+            creditsPosY = viewport.offsetHeight;
+            creditsPaused = false;
+            document.getElementById('creditsPlayPauseIcon').className = 'fas fa-pause text-champagne';
+            document.getElementById('creditsPlayPauseText').textContent = 'إيقاف مؤقت';
+        }
+
+        function launchFireworksShow(bursts = 7) {
+            showerRosePetals(55);
+            for (let i = 0; i < bursts; i++) {
+                setTimeout(() => {
+                    const rx = W * (0.18 + Math.random() * 0.64);
+                    const ry = H * (0.15 + Math.random() * 0.5);
+                    spawnFireworkBurst(rx, ry, 65);
+                }, i * 320);
+            }
+        }
+
+        function triggerGrandFinale() {
+            launchFireworksShow(8);
+            document.getElementById('finaleModal').classList.remove('hidden');
+        }
+
+        function closeFinaleModal() {
+            document.getElementById('finaleModal').classList.add('hidden');
+        }
+
+        /* =========================================================
+           9. لوحة تخصيص العميل وتصدير الملف النهائي للإرسال
+           ========================================================= */
+        let tempPhotos = [];
+
+        function openCustomizerDrawer() {
+            document.getElementById('cfgHerName').value = appData.herName;
+            document.getElementById('cfgDateRaw').value = appData.specialDateRaw;
+            document.getElementById('cfgDateDisplay').value = appData.specialDateDisplay;
+            document.getElementById('cfgDateHeading').value = appData.dateHeading;
+            document.getElementById('cfgDateQuote').value = appData.dateQuote;
+            document.getElementById('cfgCreditsText').value = appData.creditsText;
+
+            tempPhotos = JSON.parse(JSON.stringify(appData.photos));
+            renderCfgPhotosList();
+            document.getElementById('customizerDrawer').classList.remove('hidden');
+        }
+
+        function closeCustomizerDrawer() {
+            document.getElementById('customizerDrawer').classList.add('hidden');
+        }
+
+        function renderCfgPhotosList() {
+            const container = document.getElementById('cfgPhotosList');
+            container.innerHTML = '';
+
+            tempPhotos.forEach((p, idx) => {
+                const item = document.createElement('div');
+                item.className = 'p-3.5 rounded-xl bg-black/50 border border-white/10 flex gap-3 items-start';
+                item.innerHTML = `
+                    <img src="${p.url}" class="w-16 h-16 rounded-lg object-cover border border-champagne/40 flex-shrink-0 mt-1">
+                    <div class="flex-1 space-y-2">
+                        <div class="flex flex-wrap items-center gap-2">
+                            <label class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-champagne/20 text-champagne text-xs font-bold cursor-pointer hover:bg-champagne/30 transition">
+                                <i class="fas fa-upload"></i>
+                                <span>رفع صورة من جهازك</span>
+                                <input type="file" accept="image/*" class="hidden" onchange="handleImageUpload(event, ${idx})">
+                            </label>
+                            <input type="text" value="${(p.date || '').replace(/"/g, '&quot;')}"
+                                   oninput="tempPhotos[${idx}].date = this.value"
+                                   placeholder="تاريخ الصورة (مثلاً: شتاء 2023)"
+                                   class="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-xs text-champagne focus:border-champagne focus:outline-none">
+                        </div>
+                        <input type="text" value="${(p.caption || '').replace(/"/g, '&quot;')}"
+                               oninput="tempPhotos[${idx}].caption = this.value"
+                               placeholder="اكتب وصفاً رومانسياً للصورة..."
+                               class="w-full px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs text-white focus:border-champagne focus:outline-none">
+                    </div>
+                    ${tempPhotos.length > 1 ? `
+                    <button onclick="removePhotoSlot(${idx})" class="text-rose-400 hover:text-rose-300 p-1.5" title="حذف">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>` : ''}
+                `;
+                container.appendChild(item);
+            });
+        }
+
+        function handleImageUpload(e, idx) {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(ev) {
+                const img = new Image();
+                img.onload = function() {
+                    const c = document.createElement('canvas');
+                    const maxDim = 950;
+                    let w = img.width, h = img.height;
+                    if (w > maxDim || h > maxDim) {
+                        if (w > h) { h = Math.round(h * maxDim / w); w = maxDim; }
+                        else { w = Math.round(w * maxDim / h); h = maxDim; }
+                    }
+                    c.width = w;
+                    c.height = h;
+                    c.getContext('2d').drawImage(img, 0, 0, w, h);
+                    tempPhotos[idx].url = c.toDataURL('image/jpeg', 0.86);
+                    renderCfgPhotosList();
+                };
+                img.src = ev.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function addNewPhotoSlot() {
+            tempPhotos.push({
+                url: ATTACHED_MEMORY_IMAGE,
+                date: "ذكرى سعيدة",
+                caption: "أجمل لحظات عمري معاكي"
+            });
+            renderCfgPhotosList();
+        }
+
+        function removePhotoSlot(idx) {
+            tempPhotos.splice(idx, 1);
+            renderCfgPhotosList();
+        }
+
+        function commitDataFromInputs() {
+            appData.herName = document.getElementById('cfgHerName').value.trim() || DEFAULT_DATA.herName;
+            appData.specialDateRaw = document.getElementById('cfgDateRaw').value || DEFAULT_DATA.specialDateRaw;
+            appData.specialDateDisplay = document.getElementById('cfgDateDisplay').value.trim() || DEFAULT_DATA.specialDateDisplay;
+            appData.dateHeading = document.getElementById('cfgDateHeading').value.trim() || DEFAULT_DATA.dateHeading;
+            appData.dateQuote = document.getElementById('cfgDateQuote').value.trim() || DEFAULT_DATA.dateQuote;
+            appData.creditsText = document.getElementById('cfgCreditsText').value.trim() || DEFAULT_DATA.creditsText;
+            appData.photos = tempPhotos;
+
+            try {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(appData));
+            } catch (err) {
+                console.warn('Storage limit notice');
+            }
+            populateAllScenes();
+        }
+
+        function saveCustomizerChanges() {
+            commitDataFromInputs();
+            closeCustomizerDrawer();
+            showToast('تم حفظ وتحديث الهدية بنجاح ✨');
+        }
+
+        function resetToDefaultState() {
+            appData = JSON.parse(JSON.stringify(DEFAULT_DATA));
+            localStorage.removeItem(STORAGE_KEY);
+            populateAllScenes();
+            closeCustomizerDrawer();
+            showToast('تمت استعادة الإعدادات الافتراضية');
+        }
+
+        // توليد وتحميل ملف HTML نهائي مدمج به كل الصور والكلام ومخفي منه زر الإعدادات تماماً
+        function exportReadyGiftFile() {
+            commitDataFromInputs();
+
+            const clonedDoc = document.documentElement.cloneNode(true);
+
+            // إزالة زر التخصيص ولوحة التخصيص بالكامل من النسخة المرسلة للحبيبة
+            const cornerBtn = clonedDoc.querySelector('#customizerCornerWrapper');
+            if (cornerBtn) cornerBtn.remove();
+            const drawer = clonedDoc.querySelector('#customizerDrawer');
+            if (drawer) drawer.remove();
+
+            // تضمين البيانات المخصصة (بما فيها الصور Base64) داخل ملف الـ HTML
+            const embeddedScript = document.createElement('script');
+            embeddedScript.textContent = `window.__EMBEDDED_ROYAL_GIFT__ = ${JSON.stringify(appData)};`;
+            clonedDoc.querySelector('head').insertBefore(embeddedScript, clonedDoc.querySelector('head').firstChild);
+
+            const htmlOutput = '<!DOCTYPE html>\n' + clonedDoc.outerHTML;
+            const blob = new Blob([htmlOutput], { type: 'text/html;charset=utf-8' });
+            const downloadLink = document.createElement('a');
+            downloadLink.href = URL.createObjectURL(blob);
+            downloadLink.download = `هدية_${appData.herName.replace(/\s+/g, '_')}.html`;
+            downloadLink.click();
+
+            closeCustomizerDrawer();
+            showToast('تم تحميل الملف النهائي الجاهز للإرسال! 🎁');
+        }
+
+        function showToast(msg) {
+            const t = document.getElementById('toastNotification');
+            t.textContent = msg;
+            t.classList.remove('hidden');
+            setTimeout(() => t.classList.add('hidden'), 3500);
+        }
+
+        /* =========================================================
+           10. تشغيل التجربة عند تحميل الصفحة
+           ========================================================= */
+        window.onload = function() {
+            // إخفاء زر التخصيص تلقائياً إذا كانت هذه نسخة مرسلة للحبيبة
+            if (window.__EMBEDDED_ROYAL_GIFT__) {
+                const corner = document.getElementById('customizerCornerWrapper');
+                if (corner) corner.remove();
+            }
+
+            renderCanvasFrame();
+            populateAllScenes();
+            startLoveLoaderSequence();
+        };
+    </script>
+</body>
+</html>
